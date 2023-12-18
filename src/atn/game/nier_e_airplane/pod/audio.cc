@@ -1,0 +1,56 @@
+/****************************************************************************
+**
+** Copyright (C) 2023 MinghaoHe Private.
+**
+** This file is part of the NierE_AllToBeNice, which is the shoot game for ending 'E' in Nier.
+**
+** Licensed under the MIT license.
+** A copy of the MIT License is included in this file.
+**
+**
+** $BEGIN_LICENSE:MIT$
+**
+** Terms of the MIT License:
+** Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+** documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+** rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+** permit persons to whom the Software is furnished to do so, subject to the following conditions:
+**
+** The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+** the Software.
+**
+** THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+** LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+** NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+** WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+** SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+**
+** $END_LICENSE$
+**
+****************************************************************************/
+
+#include "audio.h"
+
+namespace atn::game::pod {
+
+AudioComponent::AudioComponent() {}
+
+AudioComponent::~AudioComponent() {
+  if (shoot_ != nullptr) {
+    Mix_FreeChunk(shoot_);
+  }
+}
+
+void AudioComponent::Tick(size_t delta) {
+  if (!seed_->logic.contains("audio")) {
+    return;
+  }
+  if (seed_->logic["audio"].get<std::string>().compare("shoot") == 0) {
+    if (shoot_ == nullptr) {
+      shoot_ = Mix_LoadWAV("res/audio/shoot.wav");
+    }
+    Mix_PlayChannel(0, shoot_, 0);
+  }
+}
+
+}  // namespace atn::game::pod
