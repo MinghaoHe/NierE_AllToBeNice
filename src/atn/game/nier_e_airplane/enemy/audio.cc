@@ -47,7 +47,7 @@ void AudioComponent::Tick(size_t delta) {
   }
   if (seed_->logic["audio"].get<std::string>().compare("crack") == 0) {
     if (crack_ == nullptr) {
-      crack_ = Mix_LoadWAV("res/audio/crack.wav");
+      crack_ = Mix_LoadWAV("res/nier_e_airplane/audio/crack.wav");
     }
     Mix_PlayChannel(0, crack_, 0);
   }

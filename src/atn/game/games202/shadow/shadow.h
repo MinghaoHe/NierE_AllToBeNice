@@ -30,47 +30,18 @@
 ****************************************************************************/
 
 #pragma once
-#ifndef INCLUDE_ATN_GAME_GAME
-#define INCLUDE_ATN_GAME_GAME
-
-#include <list>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-
-#include "atn/engine/ecs/entity.h"
-
-#define NIER_E_AIRPLANE 0
-#define GAMES_202 1
-
-#if NIER_E_AIRPLANE
-
-#include "atn/game/nier_e_airplane/nier_e_airplane.h"
-
-#elif GAMES_202
-
-#include "atn/game/games202/games202.h"
-
-#else
+#ifndef INCLUDE_ATN_GAME_GAMES202_SHADOW_SHADOW
+#define INCLUDE_ATN_GAME_GAMES202_SHADOW_SHADOW
 
 namespace atn::game {
 
-inline std::unordered_map<std::string, std::unordered_set<std::string>> CollisionRelation() {
-  return {};
-}
+inline std::list<std::unique_ptr<engine::ecs::Entity>> OrigSeed() { return {}; }
 
-inline std::list<std::unique_ptr<engine::ecs::Entity>> OrigSeed() {
-  return {};
-}
-
-inline std::unique_ptr<engine::ecs::Entity> CreateEntity(std::shared_ptr<engine::ecs::EntityCreateParam> create_param) {
+inline std::unique_ptr<engine::ecs::Entity> CreateEntity(
+    std::shared_ptr<engine::ecs::EntityCreateParam> create_param) {
   return std::make_unique<engine::ecs::Entity>();
 }
 
-inline std::string Bgm() { return {}; }
-
 }  // namespace atn::game
 
-#endif
-
-#endif  // !INCLUDE_ATN_GAME_GAME
+#endif  // !INCLUDE_ATN_GAME_GAMES202_SHADOW_SHADOW

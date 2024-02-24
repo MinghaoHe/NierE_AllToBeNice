@@ -48,7 +48,7 @@ void Text::GenCharTextures() {
   FT_Face ft_face{};
 
   FT_Init_FreeType(&ft);
-  FT_New_Face(ft, "res/font/Prida01.otf", 0, &ft_face);
+  FT_New_Face(ft, "res/nier_e_airplane/font/Prida01.otf", 0, &ft_face);
   FT_Set_Pixel_Sizes(ft_face, 0, 48);
 
   GLint pre_align{4};

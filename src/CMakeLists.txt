@@ -165,6 +165,12 @@ SET(PROJECT_SOURCE_FILES
     atn/game/nier_e_airplane/pod_trail/render.h
     atn/game/nier_e_airplane/pod_trail/render.cc
 
+    # games202
+    atn/game/games202/games202.h
+
+    # shadow
+    atn/game/games202/shadow/shadow.h
+
     # utils
     atn/utils/id_generator.h
     atn/utils/id_generator.cc

@@ -81,7 +81,7 @@ void SDLCanvas::SetAttribute() const {
 }
 
 void SDLCanvas::SetIcon() {
-  SDL_Surface *surface{SDL_LoadBMP("res/icon/Nier.bmp")};
+  SDL_Surface *surface{SDL_LoadBMP("res/nier_e_airplane/icon/Nier.bmp")};
   SDL_SetWindowIcon(window_, surface);
   SDL_DestroySurface(surface);
 }

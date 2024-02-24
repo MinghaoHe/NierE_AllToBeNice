@@ -71,7 +71,6 @@ inline std::list<std::unique_ptr<engine::ecs::Entity>> OrigSeed() {
   return seed;
 }
 
-
 inline std::unique_ptr<engine::ecs::Entity> CreateEntity(std::shared_ptr<engine::ecs::EntityCreateParam> create_param) {
   std::unique_ptr<engine::ecs::Entity> entity;
   if (create_param->tag.compare(game::kEnemyTag) == 0) {
@@ -92,7 +91,7 @@ inline std::unique_ptr<engine::ecs::Entity> CreateEntity(std::shared_ptr<engine:
   return std::move(entity);
 };
 
-inline std::string Bgm() { return "res/audio/Weight_of_the_World.mp3"; }
+inline std::string Bgm() { return "res/nier_e_airplane/audio/Weight_of_the_World.mp3"; }
 
 }  // namespace atn::game
 

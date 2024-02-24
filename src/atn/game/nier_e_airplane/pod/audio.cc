@@ -47,7 +47,7 @@ void AudioComponent::Tick(size_t delta) {
   }
   if (seed_->logic["audio"].get<std::string>().compare("shoot") == 0) {
     if (shoot_ == nullptr) {
-      shoot_ = Mix_LoadWAV("res/audio/shoot.wav");
+      shoot_ = Mix_LoadWAV("res/nier_e_airplane/audio/shoot.wav");
     }
     Mix_PlayChannel(0, shoot_, 0);
   }
