@@ -170,6 +170,14 @@ SET(PROJECT_SOURCE_FILES
 
     # shadow
     atn/game/games202/shadow/shadow.h
+    atn/game/games202/shadow/tag.h
+
+    atn/game/games202/shadow/marry.h
+    atn/game/games202/shadow/marry.cc
+    atn/game/games202/shadow/marry/logic.h
+    atn/game/games202/shadow/marry/logic.cc
+    atn/game/games202/shadow/marry/render.h
+    atn/game/games202/shadow/marry/render.cc
 
     # utils
     atn/utils/id_generator.h

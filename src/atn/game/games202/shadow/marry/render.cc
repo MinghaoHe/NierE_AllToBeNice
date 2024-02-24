@@ -29,28 +29,33 @@
 **
 ****************************************************************************/
 
-#pragma once
-#ifndef INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
-#define INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#include "render.h"
 
-#include <string>
+#include <iostream>
 
-namespace atn::game {
+namespace atn::game::marry {
 
-inline const std::string kEnemyTag{"enemy"};
+RenderComponent::RenderComponent() {
+  tinyobj::ObjReaderConfig config;
+  config.mtl_search_path = "res/games202/shadow/assert/";  // Marry.mtl
+  if (!obj_.ParseFromFile("res/games202/shadow/assert/Marry.obj", config)) {
+    std::cerr
+        << R"([tinyobj] parse "res/games202/shadow/assert/Marry.obj" fail, error: )"
+        << obj_.Error();
+  }
 
-inline const std::string kEnemyBullet{"enemy_bullet"};
+  if (!obj_.Warning().empty()) {
+    std::cout
+        << R"([tinyobj] parse "res/games202/shadow/assert/Marry.obj" fail, warning: )"
+        << obj_.Warning();
+  }
+  const tinyobj::attrib_t &attrib = obj_.GetAttrib();
+  const std::vector<tinyobj::shape_t> &shapes = obj_.GetShapes();
+  const std::vector<tinyobj::material_t> &materials = obj_.GetMaterials();
+}
 
-inline const std::string kEnemyHit{"enemy_hit"};
+RenderComponent::~RenderComponent() {}
 
-inline const std::string kParticle{"particle"};
+void RenderComponent::Tick(size_t delta) {}
 
-inline const std::string kPodTag{"pod"};
-
-inline const std::string kPodBulletTag{"pod_bullet"};
-
-inline const std::string kPodTrailTag{"pod_trail"};
-
-}  // namespace atn::game
-
-#endif  // !INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+}  // namespace atn::game::marry

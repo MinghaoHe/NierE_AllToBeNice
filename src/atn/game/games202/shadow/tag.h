@@ -30,27 +30,15 @@
 ****************************************************************************/
 
 #pragma once
-#ifndef INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
-#define INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#ifndef INCLUDE_ATN_GAME_GAMES202_SHADOW_TAG
+#define INCLUDE_ATN_GAME_GAMES202_SHADOW_TAG
 
 #include <string>
 
 namespace atn::game {
 
-inline const std::string kEnemyTag{"enemy"};
-
-inline const std::string kEnemyBullet{"enemy_bullet"};
-
-inline const std::string kEnemyHit{"enemy_hit"};
-
-inline const std::string kParticle{"particle"};
-
-inline const std::string kPodTag{"pod"};
-
-inline const std::string kPodBulletTag{"pod_bullet"};
-
-inline const std::string kPodTrailTag{"pod_trail"};
+inline const std::string kMarryTag{"Marry"};
 
 }  // namespace atn::game
 
-#endif  // !INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#endif  // !INCLUDE_ATN_GAME_GAMES202_SHADOW_TAG

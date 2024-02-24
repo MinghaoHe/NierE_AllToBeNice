@@ -29,28 +29,14 @@
 **
 ****************************************************************************/
 
-#pragma once
-#ifndef INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
-#define INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#include "logic.h"
 
-#include <string>
+namespace atn::game::marry {
 
-namespace atn::game {
+LogicComponent::LogicComponent() {}
 
-inline const std::string kEnemyTag{"enemy"};
+LogicComponent::~LogicComponent() {}
 
-inline const std::string kEnemyBullet{"enemy_bullet"};
+void LogicComponent::Tick(size_t delta) {}
 
-inline const std::string kEnemyHit{"enemy_hit"};
-
-inline const std::string kParticle{"particle"};
-
-inline const std::string kPodTag{"pod"};
-
-inline const std::string kPodBulletTag{"pod_bullet"};
-
-inline const std::string kPodTrailTag{"pod_trail"};
-
-}  // namespace atn::game
-
-#endif  // !INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+}  // namespace atn::game::marry

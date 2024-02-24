@@ -30,27 +30,25 @@
 ****************************************************************************/
 
 #pragma once
-#ifndef INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
-#define INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#ifndef INCLUDE_ATN_GAME_GAMSES202_MARRY
+#define INCLUDE_ATN_GAME_GAMSES202_MARRY
 
-#include <string>
+#include "atn/engine/ecs/entity.h"
+#include "atn/game/games202/shadow/tag.h"
 
 namespace atn::game {
 
-inline const std::string kEnemyTag{"enemy"};
+namespace marry {
 
-inline const std::string kEnemyBullet{"enemy_bullet"};
+struct EntityCreateParam : public engine::ecs::EntityCreateParam {
+  explicit EntityCreateParam() : engine::ecs::EntityCreateParam(kMarryTag) {}
+};
 
-inline const std::string kEnemyHit{"enemy_hit"};
+}  // namespace marry
 
-inline const std::string kParticle{"particle"};
-
-inline const std::string kPodTag{"pod"};
-
-inline const std::string kPodBulletTag{"pod_bullet"};
-
-inline const std::string kPodTrailTag{"pod_trail"};
+std::unique_ptr<engine::ecs::Entity> CreateMarry(
+    std::shared_ptr<engine::ecs::EntityCreateParam> create_param);
 
 }  // namespace atn::game
 
-#endif  // !INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#endif  // !INCLUDE_ATN_GAME_GAMSES202_MARRY

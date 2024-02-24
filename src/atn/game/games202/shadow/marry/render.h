@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2024 MinghaoHe Private.
+** Copyright (C) 2023 MinghaoHe Private.
 **
 ** This file is part of the NierE_AllToBeNice, which is the shoot game for ending 'E' in Nier.
 **
@@ -30,27 +30,27 @@
 ****************************************************************************/
 
 #pragma once
-#ifndef INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
-#define INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#ifndef INCLUDE_ATN_GAME_GAMES202_SHADOW_MARRY_RENDER
+#define INCLUDE_ATN_GAME_GAMES202_SHADOW_MARRY_RENDER
 
-#include <string>
+#include "atn/engine/render/component.h"
 
-namespace atn::game {
+#include "3rdparty/tinyobjloader/tiny_obj_loader.h"
 
-inline const std::string kEnemyTag{"enemy"};
+namespace atn::game::marry {
 
-inline const std::string kEnemyBullet{"enemy_bullet"};
+class RenderComponent : public engine::render::Component {
+ public:
+  RenderComponent();
+  virtual ~RenderComponent();
 
-inline const std::string kEnemyHit{"enemy_hit"};
+ public:
+  virtual void Tick(size_t delta) override;
 
-inline const std::string kParticle{"particle"};
+ private:
+  tinyobj::ObjReader obj_;
+};
 
-inline const std::string kPodTag{"pod"};
+}  // namespace atn::game::marry
 
-inline const std::string kPodBulletTag{"pod_bullet"};
-
-inline const std::string kPodTrailTag{"pod_trail"};
-
-}  // namespace atn::game
-
-#endif  // !INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
+#endif  // !INCLUDE_ATN_GAME_GAMES202_SHADOW_MARRY_RENDER

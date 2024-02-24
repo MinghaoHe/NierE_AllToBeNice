@@ -28,29 +28,29 @@
 ** $END_LICENSE$
 **
 ****************************************************************************/
+#include "marry.h"
 
-#pragma once
-#ifndef INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
-#define INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG
-
-#include <string>
+#include "atn/game/games202/shadow/marry/logic.h"
+#include "atn/game/games202/shadow/marry/render.h"
 
 namespace atn::game {
 
-inline const std::string kEnemyTag{"enemy"};
+std::unique_ptr<engine::ecs::Entity> CreateMarry(
+    std::shared_ptr<engine::ecs::EntityCreateParam> create_param) {
+  std::shared_ptr<marry::EntityCreateParam> create{std::static_pointer_cast<marry::EntityCreateParam>(create_param)};
+  std::unique_ptr<engine::ecs::Entity> marry{std::make_unique<engine::ecs::Entity>()};
 
-inline const std::string kEnemyBullet{"enemy_bullet"};
+  marry->Tag(create->tag);
 
-inline const std::string kEnemyHit{"enemy_hit"};
+  std::shared_ptr<engine::logic::Component> logic_component{std::make_shared<marry::LogicComponent>()};
+  marry->Attach(engine::ecs::Category::kLogic, logic_component);
 
-inline const std::string kParticle{"particle"};
+  std::shared_ptr<engine::render::Component> render_component{std::make_shared<marry::RenderComponent>()};
+  marry->Attach(engine::ecs::Category::kRender, render_component);
 
-inline const std::string kPodTag{"pod"};
+  marry->Concretize();
 
-inline const std::string kPodBulletTag{"pod_bullet"};
-
-inline const std::string kPodTrailTag{"pod_trail"};
+  return marry;
+}
 
 }  // namespace atn::game
-
-#endif  // !INCLUDE_ATN_GAME_NIER_E_AIRPLANE_TAG

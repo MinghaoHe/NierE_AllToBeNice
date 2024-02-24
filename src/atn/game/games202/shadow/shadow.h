@@ -33,13 +33,27 @@
 #ifndef INCLUDE_ATN_GAME_GAMES202_SHADOW_SHADOW
 #define INCLUDE_ATN_GAME_GAMES202_SHADOW_SHADOW
 
+#include "atn/game/games202/shadow/marry.h"
+
 namespace atn::game {
 
-inline std::list<std::unique_ptr<engine::ecs::Entity>> OrigSeed() { return {}; }
+inline std::list<std::unique_ptr<engine::ecs::Entity>> OrigSeed() {
+  std::list<std::unique_ptr<engine::ecs::Entity>> seed;
+
+  std::shared_ptr<game::marry::EntityCreateParam> marry_param{
+      std::make_shared<game::marry::EntityCreateParam>()};
+  seed.emplace_back(game::CreateMarry(marry_param));
+
+  return seed;
+}
 
 inline std::unique_ptr<engine::ecs::Entity> CreateEntity(
     std::shared_ptr<engine::ecs::EntityCreateParam> create_param) {
-  return std::make_unique<engine::ecs::Entity>();
+  std::unique_ptr<engine::ecs::Entity> entity;
+  if (create_param->tag.compare(game::kMarryTag) == 0) {
+    entity = game::CreateMarry(create_param);
+  }
+  return std::move(entity);
 }
 
 }  // namespace atn::game

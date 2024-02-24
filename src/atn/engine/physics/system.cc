@@ -36,6 +36,14 @@
 #include "atn/engine/physics/component.h"
 #include "atn/game/game.h"
 
+#ifdef max
+#undef max
+#endif
+
+#ifdef min
+#undef min
+#endif
+
 namespace atn::engine::physics {
 
 System::System() {
