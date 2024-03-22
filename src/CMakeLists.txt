@@ -81,89 +81,15 @@ SET(PROJECT_SOURCE_FILES
     atn/engine/render/framebuffer.cc
     atn/engine/render/object.h
     atn/engine/render/object.cc
-    atn/engine/render/pass.h
-    atn/engine/render/pass.cc
-    atn/engine/render/pass/bloom.h
-    atn/engine/render/pass/bloom.cc
-    atn/engine/render/pass/fade.h
-    atn/engine/render/pass/fade.cc
-    atn/engine/render/pass/normal.h
-    atn/engine/render/pass/normal.cc
-    atn/engine/render/pass/text.h
-    atn/engine/render/pass/text.cc
     atn/engine/render/shader.h
     atn/engine/render/shader.cc
+    atn/engine/render/pass.h
+    atn/engine/render/pass.cc
     atn/engine/render/text.h
     atn/engine/render/text.cc
 
     # game
     atn/game/game.h
-
-    # nier_e_airplane
-    atn/game/nier_e_airplane/nier_e_airplane.h
-    atn/game/nier_e_airplane/enemy.h
-    atn/game/nier_e_airplane/enemy.cc
-    atn/game/nier_e_airplane/enemy/audio.h
-    atn/game/nier_e_airplane/enemy/audio.cc
-    atn/game/nier_e_airplane/enemy/data.h
-    atn/game/nier_e_airplane/enemy/logic.h
-    atn/game/nier_e_airplane/enemy/logic.cc
-    atn/game/nier_e_airplane/enemy/logic/shoot.h
-    atn/game/nier_e_airplane/enemy/logic/shoot.cc
-    atn/game/nier_e_airplane/enemy/logic/track.h
-    atn/game/nier_e_airplane/enemy/logic/track.cc
-    atn/game/nier_e_airplane/enemy/render.h
-    atn/game/nier_e_airplane/enemy/render.cc
-
-    atn/game/nier_e_airplane/enemy_bullet.h
-    atn/game/nier_e_airplane/enemy_bullet.cc
-    atn/game/nier_e_airplane/enemy_bullet/data.h
-    atn/game/nier_e_airplane/enemy_bullet/logic.h
-    atn/game/nier_e_airplane/enemy_bullet/logic.cc
-    atn/game/nier_e_airplane/enemy_bullet/render.h
-    atn/game/nier_e_airplane/enemy_bullet/render.cc
-
-    atn/game/nier_e_airplane/enemy_hit.h
-    atn/game/nier_e_airplane/enemy_hit.cc
-    atn/game/nier_e_airplane/enemy_hit/data.h
-    atn/game/nier_e_airplane/enemy_hit/logic.h
-    atn/game/nier_e_airplane/enemy_hit/logic.cc
-    atn/game/nier_e_airplane/enemy_hit/render.h
-    atn/game/nier_e_airplane/enemy_hit/render.cc
-
-    atn/game/nier_e_airplane/particle.h
-    atn/game/nier_e_airplane/particle.cc
-    atn/game/nier_e_airplane/particle/data.h
-    atn/game/nier_e_airplane/particle/logic.h
-    atn/game/nier_e_airplane/particle/logic.cc
-    atn/game/nier_e_airplane/particle/render.h
-    atn/game/nier_e_airplane/particle/render.cc
-
-    atn/game/nier_e_airplane/pod.h
-    atn/game/nier_e_airplane/pod.cc
-    atn/game/nier_e_airplane/pod/audio.h
-    atn/game/nier_e_airplane/pod/audio.cc
-    atn/game/nier_e_airplane/pod/data.h
-    atn/game/nier_e_airplane/pod/logic.h
-    atn/game/nier_e_airplane/pod/logic.cc
-    atn/game/nier_e_airplane/pod/render.h
-    atn/game/nier_e_airplane/pod/render.cc
-
-    atn/game/nier_e_airplane/pod_bullet.h
-    atn/game/nier_e_airplane/pod_bullet.cc
-    atn/game/nier_e_airplane/pod_bullet/data.h
-    atn/game/nier_e_airplane/pod_bullet/logic.h
-    atn/game/nier_e_airplane/pod_bullet/logic.cc
-    atn/game/nier_e_airplane/pod_bullet/render.h
-    atn/game/nier_e_airplane/pod_bullet/render.cc
-
-    atn/game/nier_e_airplane/pod_trail.h
-    atn/game/nier_e_airplane/pod_trail.cc
-    atn/game/nier_e_airplane/pod_trail/data.h
-    atn/game/nier_e_airplane/pod_trail/logic.h
-    atn/game/nier_e_airplane/pod_trail/logic.cc
-    atn/game/nier_e_airplane/pod_trail/render.h
-    atn/game/nier_e_airplane/pod_trail/render.cc
 
     # games202
     atn/game/games202/games202.h
@@ -189,18 +115,12 @@ SET(PROJECT_SOURCE_FILES
     ${THIRD_PARTY_DIR}/glad/glad.c)
 
 SET(PROJECT_SHADER_FILES
-    atn/engine/render/shader/bloom_pass.vert
-    atn/engine/render/shader/bloom_pass.frag
     atn/engine/render/shader/canvas.vert
     atn/engine/render/shader/canvas.frag
     atn/engine/render/shader/canvas_mixer.vert
     atn/engine/render/shader/canvas_mixer.frag
-    atn/engine/render/shader/fade_pass.vert
-    atn/engine/render/shader/fade_pass.frag
-    atn/engine/render/shader/normal_pass.vert
-    atn/engine/render/shader/normal_pass.frag
-    atn/engine/render/shader/text_pass.vert
-    atn/engine/render/shader/text_pass.frag)
+    atn/engine/render/shader/mesh.vert
+    atn/engine/render/shader/mesh.frag)
 
 ADD_EXECUTABLE(NierE_AllToBeNice ${PROJECT_SOURCE_FILES} ${PROJECT_SHADER_FILES})
 SOURCE_GROUP(TREE ${PROJECT_ROOT_DIR} FILES ${PROJECT_SOURCE_FILES} ${PROJECT_SHADER_FILES})

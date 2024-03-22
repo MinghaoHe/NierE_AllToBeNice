@@ -42,10 +42,8 @@ namespace atn::engine::render {
 
 enum class PassClass {
   kNone,
-  kNormal,
-  kFade,
-  kText,
-  kBloom,
+  kMainCamera,
+  kUI
 };
 
 struct PassData {
@@ -53,41 +51,10 @@ struct PassData {
   PassData(PassClass pclass) : pass_class(pclass) {}
 
   PassClass pass_class = PassClass::kNone;
-  glm::mat4 model{1.0f};
-  glm::vec3 color{1.0f};
-  GLenum draw_mode{GL_TRIANGLES};
 };
 
-struct NormalPassData : public PassData {
-  NormalPassData() : PassData(PassClass::kNormal) {}
-
-  std::vector<GLfloat> vertices;
-  std::vector<GLuint> indices;
-};
-
-struct FadePassData : public PassData {
-  FadePassData() : PassData(PassClass::kFade) {}
-
-  float fade{};
-  float fade_rate{0.001};
-  std::vector<GLfloat> vertices;
-  std::vector<GLuint> indices;
-};
-
-struct TextPassData : public PassData {
-  TextPassData() : PassData(PassClass::kText) {}
-  float scale{1.0f};
-  float width{};
-  float height{};
-  std::string text;
-};
-
-struct BloomPassData : public PassData {
-  BloomPassData() : PassData(PassClass::kBloom) {}
-
-  glm::vec3 bloom_color{1.0f};
-  std::vector<GLfloat> vertices;
-  std::vector<GLuint> indices;
+struct MainCameraPassData : public PassData {
+  MainCameraPassData() : PassData(PassClass::kMainCamera) {}
 };
 
 }  // namespace atn::engine::render

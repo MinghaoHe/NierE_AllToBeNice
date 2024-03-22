@@ -35,10 +35,6 @@
 #include <SDL3/SDL.h>
 
 #include "atn/engine/render/component.h"
-#include "atn/engine/render/pass/bloom.h"
-#include "atn/engine/render/pass/fade.h"
-#include "atn/engine/render/pass/normal.h"
-#include "atn/engine/render/pass/text.h"
 
 std::weak_ptr<atn::engine::render::Text> gtext_render;
 
@@ -55,7 +51,7 @@ System::System(std::shared_ptr<canvas::SDLCanvas> canvas) : canvas_(canvas) {
 
   InitPasses();
 
-  // AntiAliasing();
+  AntiAliasing();
   glViewport(0, 0, canvas_->Size().width, canvas_->Size().height);
 
   glEnable(GL_DEPTH_TEST);
@@ -94,10 +90,6 @@ void System::TickPost(size_t delta) {
 }
 
 void System::InitPasses() {
-  render_passes_[PassClass::kNormal] = std::make_unique<NormalPass>(main_frame_);
-  render_passes_[PassClass::kText] = std::make_unique<TextPass>(main_frame_);
-  render_passes_[PassClass::kFade] = std::make_unique<FadePass>(main_frame_);
-  render_passes_[PassClass::kBloom] = std::make_unique<BloomPass>(main_frame_);
 }
 
 void System::AntiAliasing() {

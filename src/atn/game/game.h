@@ -40,14 +40,9 @@
 
 #include "atn/engine/ecs/entity.h"
 
-#define NIER_E_AIRPLANE 0
 #define GAMES_202 1
 
-#if NIER_E_AIRPLANE
-
-#include "atn/game/nier_e_airplane/nier_e_airplane.h"
-
-#elif GAMES_202
+#if GAMES_202
 
 #include "atn/game/games202/games202.h"
 
